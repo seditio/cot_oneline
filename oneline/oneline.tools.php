@@ -168,7 +168,7 @@ if ($a == 'open') {
 	}
 
 	$t->assign(array(
-		'ONELINE_ADDURL' => cot_url('admin', 'm=other&p=oneline&a=add'),
+		'ONELINE_ADDURL' => cot_url('admin', 'm=other&p=oneline&b=add'),
 		'ONELINE_ADDDATE' => cot_selectbox_date($sys['now'], 'long', 'oneline_date', 2030, 2016, true, ''),
 		'ONELINE_ADDTEXT' => cot_inputbox('text', 'oneline_text', '', 'class="form-control"'),
 		'ONELINE_ADDSECTION' => cot_selectbox('', 'oneline_section', $oneline_cats, $oneline_cats_titles, true, 'class="form-control"')
