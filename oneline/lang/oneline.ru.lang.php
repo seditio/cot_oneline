@@ -48,10 +48,7 @@ $L['cfg_encrypt_iv'] = 'Вектор исполнения';
  * Plugin Tools
  */
 
-$L['oneline_price1'] = 'Цена No.1';
-$L['oneline_price1a'] = 'Цена No.1a';
-$L['oneline_price2'] = 'Цена No.2';
-$L['oneline_price2a'] = 'Цена No.2a';
-$L['oneline_extra1'] = 'Экстратекст No.1';
-$L['oneline_extra2'] = 'Экстратекст No.2';
-$L['oneline_help'] = 'Поддержка и сопровождение плагина: <a href="http://www.seditio.by/" class="strong">www.seditio.by</a>';
+$L['oneline_title'] = '[SEDBY] One Line Info';
+$L['oneline_help'] = 'Разработка и сопровождение плагина: <a href="https://sed.by/" class="fb-bold">sed.by</a>';
+
+$L['oneline_return'] = 'Назад к списку';

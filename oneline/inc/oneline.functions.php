@@ -14,6 +14,15 @@ define('SEDBY_ONELINE_REALM', '[SEDBY] Oneline');
 
 require_once cot_incfile('cotlib', 'plug');
 
+require_once cot_incfile('oneline', 'plug', 'resources');
+require_once cot_langfile('oneline', 'plug');
+
+require_once cot_incfile('extrafields');
+require_once cot_incfile('forms');
+
+Cot::$db->registerTable('oneline');
+cot_extrafields_register_table('oneline');
+
 /**
  * Converts code into L or R resource string
  */
@@ -143,22 +152,26 @@ function sedby_oneline($tpl = 'oneline.list', $items = 0, $order = '', $extra = 
 
 		while ($row = $res->fetch()) {
 			$t->assign(array(
-				'PAGE_ROW_ID'				=> $row['oneline_id'],
-				'PAGE_ROW_INDEX'		=> $row['oneline_index'],
-				'PAGE_ROW_DATE'			=> $row['oneline_date'],
-				'PAGE_ROW_PRICE1'		=> $row['oneline_price1'],
-				'PAGE_ROW_PRICE1A'	=> $row['oneline_price1a'],
-				'PAGE_ROW_PRICE2'		=> $row['oneline_price2'],
-				'PAGE_ROW_PRICE2A'	=> $row['oneline_price2a'],
-				'PAGE_ROW_TEXT'			=> $row['oneline_text'],
-				'PAGE_ROW_EXTRA1'		=> $row['oneline_extra1'],
-				'PAGE_ROW_EXTRA2'		=> $row['oneline_extra2'],
-				'PAGE_ROW_LINK'			=> $row['oneline_link'],
-				'PAGE_ROW_SECTION'	=> $row['oneline_text'],
+				'PAGE_ROW_ONELINE_NUM'			=> $jj,
+				'PAGE_ROW_ONELINE_ODDEVEN'	=> cot_build_oddeven($jj),
 
-				'PAGE_ROW_NUM'			=> $jj,
-				'PAGE_ROW_ODDEVEN'	=> cot_build_oddeven($jj)
+				'PAGE_ROW_ONELINE_ID'				=> $row['oneline_id'],
+				'PAGE_ROW_ONELINE_DATE'			=> $row['oneline_date'],
+				'PAGE_ROW_ONELINE_TEXT'			=> $row['oneline_text'],
+				'PAGE_ROW_ONELINE_SECTION'	=> $row['oneline_section'],
 			));
+
+			if (!empty(Cot::$extrafields[Cot::$db->oneline])) {
+			  foreach (Cot::$extrafields[Cot::$db->oneline] as $exfld) {
+			    $uname = strtoupper($exfld['field_name']);
+			    $exfld_value = $row['oneline_' . $exfld['field_name']];
+			    $exfld_title = cot_extrafield_title($exfld, 'oneline_');
+			    $t->assign(array(
+			      'PAGE_ROW_' . $uname => $exfld_value,
+			      'PAGE_ROW_' . $uname . '_TITLE' => $exfld_title,
+			    ));
+			  }
+			}
 
 			/* === Hook - Part 2 === */
 			foreach ($extp as $pl) {

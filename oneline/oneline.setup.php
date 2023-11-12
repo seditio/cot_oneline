@@ -20,26 +20,18 @@ Recommends_modules=
 Recommends_plugins=
 [END_COT_EXT]
 [BEGIN_COT_EXT_CONFIG]
-code=00:string::default:Custom Code for Settings
+fields=00:separator:::
+pagination=01:select:0,5,10,15,20,50:0:News on page (0 viewall)
+showopen=02:radio::1:Show open button
 
-fields=01:separator:::
-pagination=02:select:0,5,10,15,20,50:0:News on page (0 viewall)
-showopen=03:radio::1:Show open button
-display_date=04:radio::1:Display date
-display_price1=05:radio::1:Display price No.1
-display_price1a=06:radio::1:Display price No.1a
-display_price2=07:radio::1:Display price No.2
-display_price2a=08:radio::1:Display price No.2a
-display_text=09:radio::1:Display text
-display_extra1=10:radio::1:Display extra text field No.1
-display_extra2=11:radio::1:Display extra text field No.2
-display_link=12:radio::1:Display link
+useajax=10:separator:::
+ajax=11:radio::0:Use AJAX
+encrypt_ajax_urls=12:radio::0:Encrypt ajax URLs
+encrypt_key=13:string::1234567890123456:Secret Key
+encrypt_iv=14:string::1234567890123456:Initialization Vector
 
-useajax=20:separator:::
-ajax=21:radio::0:Use AJAX
-encrypt_ajax_urls=22:radio::0:Encrypt ajax URLs
-encrypt_key=23:string::1234567890123456:Secret Key
-encrypt_iv=24:string::1234567890123456:Initialization Vector
+misc=20:separator:::
+code=21:string::default:Custom Code for Settings
 [END_COT_EXT_CONFIG]
 ==================== */
 
