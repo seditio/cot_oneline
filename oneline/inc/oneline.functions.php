@@ -167,8 +167,8 @@ function sedby_oneline($tpl = 'oneline.list', $items = 0, $order = '', $extra = 
 			    $exfld_value = $row['oneline_' . $exfld['field_name']];
 			    $exfld_title = cot_extrafield_title($exfld, 'oneline_');
 			    $t->assign(array(
-			      'PAGE_ROW_' . $uname => $exfld_value,
-			      'PAGE_ROW_' . $uname . '_TITLE' => $exfld_title,
+			      'PAGE_ROW_ONELINE_' . $uname => $exfld_value,
+			      'PAGE_ROW_ONELINE_' . $uname . '_TITLE' => $exfld_title,
 			    ));
 			  }
 			}

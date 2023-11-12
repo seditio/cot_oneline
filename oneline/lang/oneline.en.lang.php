@@ -44,6 +44,8 @@ $L['cfg_encrypt_ajax_urls_hint'] = 'Works only with AJAX pagination, recommended
 $L['cfg_encrypt_key'] = 'Secret key';
 $L['cfg_encrypt_iv'] = 'Initialization vector';
 
+$L['cfg_code'] = 'Custom code for settings file';
+
 /**
  * Plugin Tools
  */
