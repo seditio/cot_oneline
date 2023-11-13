@@ -54,3 +54,5 @@ $L['oneline_title'] = '[SEDBY] One Line Info';
 $L['oneline_help'] = 'Разработка и сопровождение плагина: <a href="https://sed.by/" class="fb-bold">sed.by</a>';
 
 $L['oneline_return'] = 'Назад к списку';
+
+$L['oneline_msg_empty'] = 'Текст записи пустой';

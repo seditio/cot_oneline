@@ -54,3 +54,5 @@ $L['oneline_title'] = '[SEDBY] One Line Info';
 $L['oneline_help'] = 'Developemnt and support by: <a href="https://sed.by/" class="fw-bold">sed.by</a>';
 
 $L['oneline_return'] = 'Back to list';
+
+$L['oneline_msg_empty'] = 'Text empty';
