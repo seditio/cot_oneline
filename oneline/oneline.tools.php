@@ -13,7 +13,7 @@ Hooks=tools
 * @copyright (c) 2017-2023 seditio.by
 */
 
-defined('COT_CODE') or die('Wrong URL.');
+(defined('COT_CODE') && defined('COT_ADMIN')) or die('Wrong URL.');
 
 require_once cot_incfile('oneline', 'plug');
 require_once cot_incfile('oneline', 'plug', 'settings.' . $cfg['plugin']['oneline']['code']);
@@ -196,5 +196,5 @@ $t->parse('MAIN');
 if (COT_AJAX) {
 	$t->out('MAIN');
 } else {
-	$adminmain = $t->text('MAIN');
+	$adminMain = $t->text('MAIN');
 }
