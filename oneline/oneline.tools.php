@@ -46,6 +46,8 @@ if ($a == 'open') {
     }
 
 		$db->update($db_oneline, $db_ins, "oneline_id = $id");
+
+		cot_message('oneline_updated');
 		cot_redirect(cot_url('admin', 'm=other&p=oneline&a=open&id=' . $id, '', true));
 	}
 
@@ -91,6 +93,7 @@ if ($a == 'open') {
 
 		cot_check_xg();
 		$db->delete($db_oneline, "oneline_id = $id");
+		cot_message('oneline_deleted');
 		cot_redirect(cot_url('admin', 'm=other&p=oneline', '', true));
 
 	} elseif ($b == 'update_all') {
@@ -110,6 +113,7 @@ if ($a == 'open') {
 		$flt = cot_import('oneline_filter', 'P', 'TXT');
 		($flt) ? $_SESSION['filter'] = $flt : $_SESSION['filter'] = '';
 
+		cot_message('oneline_updated_all');
 		cot_redirect(cot_url('admin', 'm=other&p=oneline', '', true));
 
 	} elseif ($b == 'add') {
@@ -121,6 +125,7 @@ if ($a == 'open') {
 		if(!empty($db_ins['oneline_text'])) {
 			$db->insert($db_oneline, $db_ins);
 			$_SESSION['filter'] = '';
+			cot_message('oneline_added');
 		}
 		else {
 			cot_error('oneline_msg_empty');
@@ -177,13 +182,7 @@ if ($a == 'open') {
 	$t->assign('ONELINE_URL_UPDATE', cot_url('admin', 'm=other&p=oneline&b=update_all'));
 
 	$pagenav = cot_pagenav('admin', 'm=other&p=oneline', $d, $ttl, $mrp);
-	$t->assign([
-		'ONELINE_PREV'			=> $pagenav['prev'],
-		'ONELINE_PAGINATION'	=> $pagenav['main'],
-		'ONELINE_NEXT'			=> $pagenav['next'],
-		'ONELINE_TOTAL'			=> $pagenav['entries'],
-		'ONELINE_ONPAGE'		=> $pagenav['onpage']
-	]);
+	$t->assign(cot_generatePaginationTags($pagenav));
 
 	$t->parse('MAIN.ONELINE_LIST');
 

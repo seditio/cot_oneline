@@ -152,13 +152,13 @@ function sedby_oneline($tpl = 'oneline.list', $items = 0, $order = '', $extra = 
 
 		while ($row = $res->fetch()) {
 			$t->assign(array(
-				'PAGE_ROW_ONELINE_NUM'			=> $jj,
-				'PAGE_ROW_ONELINE_ODDEVEN'	=> cot_build_oddeven($jj),
+				'PAGE_ROW_NUM'			=> $jj,
+				'PAGE_ROW_ODDEVEN'	=> cot_build_oddeven($jj),
 
-				'PAGE_ROW_ONELINE_ID'				=> $row['oneline_id'],
-				'PAGE_ROW_ONELINE_DATE'			=> $row['oneline_date'],
-				'PAGE_ROW_ONELINE_TEXT'			=> $row['oneline_text'],
-				'PAGE_ROW_ONELINE_SECTION'	=> $row['oneline_section'],
+				'PAGE_ROW_ID'				=> $row['oneline_id'],
+				'PAGE_ROW_DATE'			=> $row['oneline_date'],
+				'PAGE_ROW_TEXT'			=> $row['oneline_text'],
+				'PAGE_ROW_SECTION'	=> $row['oneline_section'],
 			));
 
 			if (!empty(Cot::$extrafields[Cot::$db->oneline])) {
@@ -167,8 +167,8 @@ function sedby_oneline($tpl = 'oneline.list', $items = 0, $order = '', $extra = 
 			    $exfld_value = $row['oneline_' . $exfld['field_name']];
 			    $exfld_title = cot_extrafield_title($exfld, 'oneline_');
 			    $t->assign(array(
-			      'PAGE_ROW_ONELINE_' . $uname => $exfld_value,
-			      'PAGE_ROW_ONELINE_' . $uname . '_TITLE' => $exfld_title,
+			      'PAGE_ROW_' . $uname => $exfld_value,
+			      'PAGE_ROW_' . $uname . '_TITLE' => $exfld_title,
 			    ));
 			  }
 			}
@@ -212,18 +212,8 @@ function sedby_oneline($tpl = 'oneline.list', $items = 0, $order = '', $extra = 
 			$pagenav = cot_pagenav($url_area, $url_params, $d, $totalitems, $items, $pagination, '', $ajax_mode, $ajax_block, $ajax_plug, $ajax_plug_params);
 
 			// Assign pagination tags
-			$t->assign(array(
-				'PAGE_TOP_PAGINATION'  => $pagenav['main'],
-				'PAGE_TOP_PAGEPREV'    => $pagenav['prev'],
-				'PAGE_TOP_PAGENEXT'    => $pagenav['next'],
-				'PAGE_TOP_FIRST'       => $pagenav['first'],
-				'PAGE_TOP_LAST'        => $pagenav['last'],
-				'PAGE_TOP_CURRENTPAGE' => $pagenav['current'],
-				'PAGE_TOP_TOTALLINES'  => $totalitems,
-				'PAGE_TOP_MAXPERPAGE'  => $items,
-				'PAGE_TOP_TOTALPAGES'  => $pagenav['total']
-			));
-		};
+			$t->assign(cot_generatePaginationTags($pagenav));
+		}
 
 		// Assign service tags
     if ((!$enableCache) && (Cot::$usr['maingrp'] == 5)) {

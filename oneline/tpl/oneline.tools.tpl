@@ -2,6 +2,7 @@
 <div class="row">
 	<div class="col">
 		{FILE "{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/warnings.tpl"}
+
 		<!-- BEGIN: ONELINE_SINGLE -->
 		<div class="block">
 			<h2>{PHP.R.icon-plug}{PHP.L.info_name}</h2>
@@ -41,7 +42,9 @@
 								<!-- END: EXTRAFIELDS -->
 								<tr>
 									<td colSpan="2">
-										<a href="{PHP|cot_url('admin', 'm=other&p=oneline')}" class="btn btn-success btn-sm">{PHP.R.icon-angles-left}{PHP.L.oneline_return}</a>
+										<a href="{PHP|cot_url('admin', 'm=other&p=oneline')}" class="btn btn-success btn-sm">
+											{PHP.R.icon-arrow-left}{PHP.L.oneline_return}
+										</a>
 										<button type="submit" class="btn btn-primary btn-sm">
 											{PHP.R.icon-refresh}{PHP.L.Refresh}
 										</button>
@@ -114,13 +117,13 @@
 						</table>
 					</div>
 				</form>
+				<!-- IF {PAGINATION} -->
 				<p class="{PHP.R.admin-pagination-p-class}">
-					{PHP.L.Total}: {ONELINE_TOTAL}<!-- IF {PHP.cfg.plugin.oneline.pagination} -->, <span class="text-lowercase">{PHP.L.Onpage}:</span> {ONELINE_ONPAGE}<!-- ENDIF -->
+					{PHP.L.Total}: {TOTAL_ENTRIES}, <span class="text-lowercase">{PHP.L.Onpage}:</span> {ENTRIES_ON_CURRENT_PAGE}
 				</p>
-				<!-- IF {PHP.cfg.plugin.oneline.pagination} -->
 				<nav class="{PHP.R.admin-pagination-nav-class} mt-3" aria-label="Oneline Info Pagination">
 					<ul class="pagination {PHP.R.admin-pagination-list-class}">
-						{ONELINE_PREV}{ONELINE_PAGINATION}{ONELINE_NEXT}
+						{PREVIOUS_PAGE}{PAGINATION}{NEXT_PAGE}
 					</ul>
 				</nav>
 				<!-- ENDIF -->

@@ -53,6 +53,10 @@ $L['cfg_code'] = 'Кастомный код для файла настроек';
 $L['oneline_title'] = '[SEDBY] One Line Info';
 $L['oneline_help'] = 'Разработка и сопровождение плагина: <a href="https://sed.by/" class="fb-bold">sed.by</a>';
 
+$L['oneline_added'] = 'Запись добавлена';
+$L['oneline_deleted'] = 'Запись удалена';
+$L['oneline_updated'] = 'Запись обновлена';
+$L['oneline_updated_all'] = 'Записи обновлены';
 $L['oneline_return'] = 'Назад к списку';
 
 $L['oneline_msg_empty'] = 'Текст записи пустой';

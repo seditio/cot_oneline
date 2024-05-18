@@ -12,10 +12,10 @@
 <!-- END: PAGE_ROW -->
 </table>
 
-<!-- IF {PAGE_TOP_PAGINATION} -->
+<!-- IF {PAGINATION} -->
 <nav aria-label="Oneline Pagination">
 	<ul class="pagination justify-content-center mb-0">
-		{PAGE_TOP_PAGEPREV}{PAGE_TOP_PAGINATION}{PAGE_TOP_PAGENEXT}
+		{PREVIOUS_PAGE}{PAGINATION}{NEXT_PAGE}
 	</ul>
 </nav>
 <!-- ENDIF -->

@@ -53,6 +53,10 @@ $L['cfg_code'] = 'Custom code for settings file';
 $L['oneline_title'] = '[SEDBY] One Line Info';
 $L['oneline_help'] = 'Developemnt and support by: <a href="https://sed.by/" class="fw-bold">sed.by</a>';
 
+$L['oneline_added'] = 'Record added';
+$L['oneline_deleted'] = 'Record deleted';
+$L['oneline_updated'] = 'Record updated';
+$L['oneline_updated_all'] = 'Records updated';
 $L['oneline_return'] = 'Back to list';
 
 $L['oneline_msg_empty'] = 'Text empty';
